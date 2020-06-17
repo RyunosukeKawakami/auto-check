@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # 編集されたファイルを抽出してsrcにコンバートする
 BRANCH_NAME=`git rev-parse --abbrev-ref HEAD`
