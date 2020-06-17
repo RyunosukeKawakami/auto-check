@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# 編集されたファイルを抽出してsrcにコンバートする
+BRANCH_NAME=`git rev-parse --abbrev-ref HEAD`
+MODIFYED_FILES=`git diff --name-only origin/$BRANCH_NAME`
+
+for file in $MODIFYED_FILES; do
+    sfdx force:source:convert -d src
+done
