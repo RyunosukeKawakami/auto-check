@@ -1,0 +1,19 @@
+#!/bin/sh
+
+#commitメッセージに"CICD-"が含まれていないとき、確認をする。
+if [ ! "`echo $1 | grep 'CICD-'`" ]; then
+    while true;
+    do
+        echo "コミットメッセージにjiraチケット番号が含まれていません。このままコミットしますか？[Y / n]"
+        read key
+
+        case "$key" in 
+            "Y")
+                break;;
+            "n")
+                exit 1
+                break;;
+            *)   echo ;;
+        esac
+    done
+fi
