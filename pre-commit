@@ -4,6 +4,6 @@
 BRANCH_NAME=`git rev-parse --abbrev-ref HEAD`
 MODIFYED_FILES=`git diff --name-only origin/$BRANCH_NAME`
 
-for file in $MODIFYED_FILES; do
+if [ ! $MODIFYED_FILES = '' ]; then
     sfdx force:source:convert -d src
-done
+fi
